@@ -1,48 +1,45 @@
-[
-  [
-    {
-      "nama": "John Doe",
-      "umur": 30,
-      "pekerjaan": "Pengembang"
-    },
-    {
-      "nama": "John Doe",
-      "umur": 30,
-      "pekerjaan": "Pengembang"
-    },
-    {
-      "nama": "John Doe",
-      "umur": 30,
-      "pekerjaan": "Pengembang"
-    },
-    {
-      "nama": "John Doe",
-      "umur": 30,
-      "pekerjaan": "Pengembang"
-    }
-  ],
-  
-  [
-    {
-      "nama": "John Doe",
-      "umur": 30,
-      "pekerjaan": "Pengembang"
-    },
-    {
-      "nama": "John Doe",
-      "umur": 30,
-      "pekerjaan": "Pengembang"
-    },
-    {
-      "nama": "John Doe",
-      "umur": 30,
-      "pekerjaan": "Pengembang"
-    },
-    {
-      "nama": "John Doe",
-      "umur": 30,
-      "pekerjaan": "Pengembang"
-    }
-  ]
-  
-]
+{
+  "categories": {
+    "Technology": [
+      {
+        "id": 1,
+        "title": "Lorem Ipsum Dolor",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+        "publishedAt": "2023-01-01",
+        "author": "John Doe"
+      },
+      {
+        "id": 4,
+        "title": "Sed Eget Nisl in Felis Euismod Luctus",
+        "content": "Sed eget nisl in felis euismod luctus. Duis tristique urna a justo...",
+        "publishedAt": "2023-01-15",
+        "author": "Alice Johnson"
+      }
+    ],
+    "Science": [
+      {
+        "id": 2,
+        "title": "Pellentesque Habitant Morbi Tristique Senectus",
+        "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames...",
+        "publishedAt": "2023-01-05",
+        "author": "Jane Doe"
+      },
+      {
+        "id": 5,
+        "title": "In Nisl Eget Tortor Venenatis Tristique",
+        "content": "In nisl eget tortor venenatis tristique. Proin euismod efficitur justo...",
+        "publishedAt": "2023-01-20",
+        "author": "Charlie Brown"
+      }
+    ],
+    "Business": [
+      {
+        "id": 3,
+        "title": "Cras Euismod Nisl Id Felis Porta",
+        "content": "Cras euismod nisl id felis porta, non iaculis neque luctus...",
+        "publishedAt": "2023-01-10",
+        "author": "Bob Smith"
+      }
+    ]
+  }
+}
