@@ -1,51 +1,36 @@
-const fs = require('fs').promises;
-const path = require('path');
+const fs = require('fs');
 
-async function getData() {
-  try {
-    // Baca file JSON
-    const dataPath = path.join(__dirname, 'public', 'db.json');
-    const jsonData = await fs.readFile(dataPath, 'utf8');
+function getNewsData(req, res) {
+  fs.readFile('db.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading file:', err);
+      res.status(500).send('Terjadi kesalahan saat membaca data');
+      return;
+    }
 
-    // Parse JSON dan kembalikan sebagai objek
-    const data = JSON.parse(jsonData);
+    try {
+      const newsData = JSON.parse(data);
+      let htmlResponse = '<div>'; // Pembuka tag div untuk struktur HTML
 
-    // Tampilkan data dalam format HTML
-    const htmlOutput = generateHTML(data);
+      newsData.forEach(news => {
+        htmlResponse += `
+          <div class="news-item">
+            <h2>${news['tittle berita']}</h2>
+            <p><strong>Author:</strong> ${news.author}</p>
+            <p>${news.detail}</p>
+          </div>
+        `;
+      });
 
-    return htmlOutput;
-  } catch (error) {
-    console.error('Gagal membaca data JSON:', error);
-    throw error;
-  }
+      htmlResponse += '</div>'; // Penutup tag div untuk struktur HTML
+      res.send(htmlResponse);
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
+      res.status(500).send('Terjadi kesalahan dalam pemrosesan data');
+    }
+  });
 }
 
-function generateHTML(data) {
-  let htmlContent = '<html><head><title>Data Display</title></head><body>';
-
-  // Debugging: Log data untuk memeriksa struktur
-  console.log('Data:', data);
-
-  for (const category in data.categories) {
-    htmlContent += `<h2>${category} News</h2>`;
-    const newsArray = data.categories[category];
-
-    // Debugging: Log newsArray untuk memeriksa struktur
-    console.log('News Array:', newsArray);
-
-    newsArray.forEach(news => {
-      htmlContent += `
-        <div>
-          <h3>${news.title}</h3>
-          <p>${news.content}</p>
-          <p>Published on ${news.publishedAt} by ${news.author}</p>
-        </div>
-      `;
-    });
-  }
-
-  htmlContent += '</body></html>';
-  return htmlContent;
-}
-
-module.exports = getData;
+module.exports = {
+  getNewsData,
+};
