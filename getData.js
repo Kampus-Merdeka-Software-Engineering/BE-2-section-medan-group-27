@@ -10,20 +10,7 @@ function getNewsData(req, res) {
 
     try {
       const newsData = JSON.parse(data);
-      let htmlResponse = '<div>'; // Pembuka tag div untuk struktur HTML
-
-      newsData.forEach(news => {
-        htmlResponse += `
-          <div class="news-item">
-            <h2>${news['tittle berita']}</h2>
-            <p><strong>Author:</strong> ${news.author}</p>
-            <p>${news.detail}</p>
-          </div>
-        `;
-      });
-
-      htmlResponse += '</div>'; // Penutup tag div untuk struktur HTML
-      res.send(htmlResponse);
+      res.send(newsData);
     } catch (error) {
       console.error('Error parsing JSON:', error);
       res.status(500).send('Terjadi kesalahan dalam pemrosesan data');
