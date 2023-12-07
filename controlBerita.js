@@ -7,12 +7,13 @@ function getBerita(req, res, next){
     })
     .catch(err=> console.error(err));
 }
+
 function getBeritaById(req, res, next) {
     const beritaId = req.params.id; // Anggap bahwa id berita diteruskan sebagai parameter rute
 
     berita.findOne({
         where: {
-            id: beritaId
+            ID_berita: beritaId
         }
     })
     .then(function (berita) {

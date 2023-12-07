@@ -16,6 +16,7 @@ router.post('test', (req, res) => {
 })
 
 router.get('/news',beritaController.getBerita)
+router.get('/news/:id', beritaController.getBeritaById);
 
 
 module.exports = router;
