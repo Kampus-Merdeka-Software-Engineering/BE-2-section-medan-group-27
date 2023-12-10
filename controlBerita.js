@@ -1,19 +1,12 @@
 const berita = require('./modelberita')
 const { Op } = require('sequelize');
 
-function getBerita(req, res, next) {
-    // Mendapatkan nilai kata kunci dari parameter query 'keyword'
-    const keyword = req.query.keyword;
-
-    // Jika ada kata kunci, gunakan sebagai filter
-    const filterOptions = keyword ? { where: { Judul_Berita: { [Op.like]: `%${keyword}%` } } } : {};
-
-    // Menggunakan findAll dengan filterOptions
-    berita.findAll(filterOptions)
-        .then(function (berita) {
-            res.status(200).json(berita);
-        })
-        .catch(err => console.error(err));
+function getBerita(req, res, next){
+    berita.findAll()
+    .then(function(berita){
+        res.status(200).json(berita)
+    })
+    .catch(err=> console.error(err));
 }
 
 function getBeritaById(req, res, next) {
