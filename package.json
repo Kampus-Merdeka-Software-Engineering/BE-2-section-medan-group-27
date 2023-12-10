@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node ./index.js",
-    "test": "echov\"Error: no test specified\" && exit 1",
-    "gas": "nodemon ./bariu.js"
+    "test": "echov\"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
