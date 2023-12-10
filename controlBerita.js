@@ -1,4 +1,5 @@
 const berita = require('./modelberita')
+const { Op } = require('sequelize');
 
 function getBerita(req, res, next){
     berita.findAll()
@@ -27,6 +28,8 @@ function getBeritaById(req, res, next) {
     .catch(err => console.error(err));
 }
 
+
+  
+
 module.exports = {
-    getBeritaById, getBerita
-};
+    getBeritaById, getBerita, }
